@@ -67,3 +67,9 @@ test('toModel keeps element names and filters display slots', () => {
   assert.ok('gui' in m.display && 'firstperson_righthand' in m.display);
   assert.strictEqual(m.textures.particle, '#blade');
 });
+
+test('prompts with Windows line endings (CRLF) parse the same', () => {
+  const text = fs.readFileSync(path.join(FIX, 'lamp', 'desk_lamp.prompt.md'), 'utf8').replace(/\r?\n/g, '\r\n');
+  assert.deepStrictEqual(brief.checkPrompt(text), []);
+  assert.deepStrictEqual(brief.fromPrompt(text), load('lamp'));
+});

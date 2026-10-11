@@ -18,7 +18,8 @@ function load(file) {
   return fromPrompt(readText(file), file);
 }
 
-function fromPrompt(text, label = 'prompt') {
+function fromPrompt(raw, label = 'prompt') {
+  const text = raw.replace(/\r\n/g, '\n');
   const m = /^#{1,3}\s*\d*\.?\s*Brief[^\n]*\n[\s\S]*?```(?:json)?\n([\s\S]*?)\n```/im.exec(text) || /```json\n([\s\S]*?)\n```/.exec(text);
   if (!m) throw new CliError(`${label}: no fenced JSON brief found`, EXIT.FAIL);
   try {
@@ -32,7 +33,8 @@ const MARKER = /^<!--\s*mcmodel-build v(\d+)\s*-->/;
 const SECTIONS = ['Intent', 'Brief', 'Build steps', 'Acceptance checklist', 'Known risks', 'Fallbacks'];
 
 // Marker and section order of a build prompt (see references/prompt-contract.md).
-function checkPrompt(text) {
+function checkPrompt(raw) {
+  const text = raw.replace(/\r\n/g, '\n');
   const problems = [];
   const m = MARKER.exec(text.trimStart());
   if (!m) problems.push({ level: 'error', path: 'marker', message: 'first line must be <!-- mcmodel-build v1 -->' });
