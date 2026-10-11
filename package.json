@@ -1,0 +1,23 @@
+{
+  "name": "model-creator",
+  "version": "0.1.0",
+  "description": "Claude Code and Codex skills that turn a reference image into a Minecraft Java block/item model resource pack.",
+  "license": "MIT",
+  "author": "SinisterRed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SinisterRedTrue/Model-Creator.git"
+  },
+  "homepage": "https://github.com/SinisterRedTrue/Model-Creator",
+  "keywords": ["minecraft", "resource-pack", "blockbench", "claude-code", "codex", "agent-skills"],
+  "bin": {
+    "mcmodel": "core/bin/mcmodel.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": ["core/bin", "core/src", "core/vendor", "references", "skills", "commands", ".claude-plugin", "AGENTS.md", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test"
+  }
+}

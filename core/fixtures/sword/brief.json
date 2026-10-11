@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "name": "ruby_sword",
+  "namespace": "custom",
+  "subject": "Short sword with a ruby in the guard",
+  "spec": {
+    "minecraft_version": "1.20.1",
+    "model_type": "weapon",
+    "delivery": "vanilla",
+    "base_item": "diamond_sword",
+    "custom_model_data": 1003,
+    "resolution": 16,
+    "style": "vanilla-faithful",
+    "scale": "sword, held normally",
+    "hidden_sides": "mirror",
+    "fidelity": "simplify",
+    "budget": "low",
+    "display_slots": [
+      "first_person",
+      "third_person",
+      "gui",
+      "ground"
+    ],
+    "output_form": "folder",
+    "reference_images": [
+      "reference.png"
+    ],
+    "defaults_applied": [
+      "resolution",
+      "style",
+      "hidden_sides",
+      "fidelity"
+    ]
+  },
+  "palette": {
+    "a": "#d9e3ea",
+    "b": "#a9b6bf",
+    "c": "#7d8a93",
+    "d": "#6b4a2b",
+    "e": "#4a3220",
+    "f": "#c9a23a",
+    "r": "#c8283c",
+    "q": "#ff6b7d"
+  },
+  "textures": {
+    "blade": {
+      "rows": [
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc",
+        "aaaaabbbbbbccccc"
+      ]
+    },
+    "guard": {
+      "rows": [
+        "eefeeeefefefeefe",
+        "ffffffffffffffff",
+        "ffffffffffffffff",
+        "ffffffffffffffff",
+        "eeeeeeeeeeeeefee",
+        "ffffffffffffffff",
+        "ffffffffffffffff",
+        "ffffffffffffffff",
+        "eeeeeefeffefefee",
+        "ffffffffffffffff",
+        "ffffffffffffffff",
+        "ffffffffffffffff",
+        "eeeeeeeeeeeeeeee",
+        "ffffffffffffffff",
+        "ffffffffffffffff",
+        "ffffffffffffffff"
+      ]
+    },
+    "grip": {
+      "rows": [
+        "ddeeddeeddeeddee",
+        "deeddeeddeeddeed",
+        "eeddeeddeeddeedd",
+        "eddeeddeeddeedde",
+        "ddeeddeeddeeddee",
+        "deeddeeddeeddeed",
+        "eeddeeddeeddeedd",
+        "eddeeddeeddeedde",
+        "ddeeddeeddeeddee",
+        "deeddeeddeeddeed",
+        "eeddeeddeeddeedd",
+        "eddeeddeeddeedde",
+        "ddeeddeeddeeddee",
+        "deeddeeddeeddeed",
+        "eeddeeddeeddeedd",
+        "eddeeddeeddeedde"
+      ]
+    },
+    "gem": {
+      "rows": [
+        "qqqqqqrrrrrrrrrr",
+        "qqqqqqrrrrrrrrrr",
+        "qqqqqqrrrrrrrrrr",
+        "qqqqqqrrrrrrrrrr",
+        "qqqqqqrrrrrrrrrr",
+        "qqqqqqrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr",
+        "rrrrrrrrrrrrrrrr"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "blade",
+      "elements": [
+        {
+          "from": [
+            7,
+            5,
+            7.5
+          ],
+          "to": [
+            9,
+            16,
+            8.5
+          ],
+          "faces": {
+            "north": {
+              "texture": "#blade"
+            },
+            "south": {
+              "texture": "#blade"
+            },
+            "east": {
+              "texture": "#blade"
+            },
+            "west": {
+              "texture": "#blade"
+            },
+            "up": {
+              "texture": "#blade"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "guard",
+      "elements": [
+        {
+          "from": [
+            5,
+            4,
+            7
+          ],
+          "to": [
+            11,
+            5,
+            9
+          ],
+          "faces": {
+            "north": {
+              "texture": "#guard"
+            },
+            "south": {
+              "texture": "#guard"
+            },
+            "east": {
+              "texture": "#guard"
+            },
+            "west": {
+              "texture": "#guard"
+            },
+            "up": {
+              "texture": "#guard"
+            },
+            "down": {
+              "texture": "#guard"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "grip",
+      "elements": [
+        {
+          "from": [
+            7.5,
+            0,
+            7.5
+          ],
+          "to": [
+            8.5,
+            4,
+            8.5
+          ],
+          "faces": {
+            "north": {
+              "texture": "#grip"
+            },
+            "south": {
+              "texture": "#grip"
+            },
+            "east": {
+              "texture": "#grip"
+            },
+            "west": {
+              "texture": "#grip"
+            },
+            "down": {
+              "texture": "#grip"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "gem",
+      "elements": [
+        {
+          "from": [
+            7.5,
+            4,
+            6.5
+          ],
+          "to": [
+            8.5,
+            5,
+            7
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              4.5,
+              7
+            ],
+            "axis": "z",
+            "angle": 45
+          },
+          "faces": {
+            "north": {
+              "texture": "#gem"
+            },
+            "east": {
+              "texture": "#gem"
+            },
+            "west": {
+              "texture": "#gem"
+            },
+            "up": {
+              "texture": "#gem"
+            },
+            "down": {
+              "texture": "#gem"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

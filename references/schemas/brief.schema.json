@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Model Creator brief",
+  "type": "object",
+  "required": ["schema_version", "name", "namespace", "spec", "parts"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": 1 },
+    "name": { "$ref": "#/definitions/id" },
+    "namespace": { "$ref": "#/definitions/id" },
+    "subject": { "type": "string" },
+    "spec": { "$ref": "#/definitions/spec" },
+    "parent": { "type": "string" },
+    "palette": {
+      "type": "object",
+      "patternProperties": { "^[^. ]$": { "$ref": "#/definitions/hex" } },
+      "additionalProperties": false
+    },
+    "textures": {
+      "type": "object",
+      "patternProperties": { "^[a-z0-9_]+$": { "$ref": "#/definitions/texture" } },
+      "additionalProperties": false
+    },
+    "parts": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/part" } },
+    "display": {
+      "type": "object",
+      "patternProperties": {
+        "^(thirdperson_righthand|thirdperson_lefthand|firstperson_righthand|firstperson_lefthand|gui|head|ground|fixed)$": { "$ref": "#/definitions/transform" }
+      },
+      "additionalProperties": false
+    },
+    "variants": { "type": "array", "items": { "type": "string" } }
+  },
+  "definitions": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_.-]+$" },
+    "hex": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$" },
+    "vec3": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+    "spec": {
+      "type": "object",
+      "required": ["minecraft_version", "model_type", "delivery"],
+      "additionalProperties": false,
+      "properties": {
+        "minecraft_version": { "type": "string" },
+        "model_type": { "enum": ["weapon", "armor", "pet", "mount", "skill_effect", "item", "block", "gui", "furniture_prop", "other"] },
+        "delivery": { "enum": ["vanilla", "itemsadder", "oraxen", "nexo", "modelengine", "fabric", "forge"] },
+        "base_item": { "type": "string", "pattern": "^(minecraft:)?[a-z0-9_]+$" },
+        "custom_model_data": { "type": "integer", "minimum": 1 },
+        "resolution": { "enum": [16, 32, 64, 128] },
+        "style": { "enum": ["vanilla-faithful", "detailed-pixel-art", "low-poly"] },
+        "scale": { "type": "string" },
+        "hidden_sides": { "enum": ["mirror", "plain", "second_image"] },
+        "fidelity": { "enum": ["exact", "simplify"] },
+        "budget": { "oneOf": [{ "enum": ["low", "normal", "unlimited"] }, { "type": "integer", "minimum": 1 }] },
+        "extras": { "type": "array", "items": { "enum": ["emissive", "translucency", "animated_textures", "variants"] } },
+        "display_slots": {
+          "type": "array",
+          "items": { "enum": ["first_person", "third_person", "gui", "ground", "head", "item_frame"] }
+        },
+        "output_form": { "enum": ["folder", "zip", "both"] },
+        "notes": { "type": "string" },
+        "reference_images": { "type": "array", "items": { "type": "string" } },
+        "defaults_applied": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "texture": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["rows"],
+          "additionalProperties": false,
+          "properties": {
+            "rows": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+            "emissive": { "type": "boolean" },
+            "animation": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "frametime": { "type": "integer", "minimum": 1 },
+                "interpolate": { "type": "boolean" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["file"],
+          "additionalProperties": false,
+          "properties": { "file": { "type": "string" } }
+        }
+      ]
+    },
+    "part": {
+      "type": "object",
+      "required": ["name", "elements"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "color": { "$ref": "#/definitions/hex" },
+        "mirror_of": { "type": "string" },
+        "pivot": { "$ref": "#/definitions/vec3" },
+        "notes": { "type": "string" },
+        "elements": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/element" } }
+      }
+    },
+    "element": {
+      "type": "object",
+      "required": ["from", "to", "faces"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "from": { "$ref": "#/definitions/vec3" },
+        "to": { "$ref": "#/definitions/vec3" },
+        "shade": { "type": "boolean" },
+        "light_emission": { "type": "integer", "minimum": 0, "maximum": 15 },
+        "rotation": {
+          "type": "object",
+          "required": ["origin", "axis", "angle"],
+          "additionalProperties": false,
+          "properties": {
+            "origin": { "$ref": "#/definitions/vec3" },
+            "axis": { "enum": ["x", "y", "z"] },
+            "angle": { "type": "number" },
+            "rescale": { "type": "boolean" }
+          }
+        },
+        "faces": {
+          "type": "object",
+          "patternProperties": { "^(north|south|east|west|up|down)$": { "$ref": "#/definitions/face" } },
+          "additionalProperties": false
+        }
+      }
+    },
+    "face": {
+      "type": "object",
+      "required": ["texture"],
+      "additionalProperties": false,
+      "properties": {
+        "texture": { "type": "string", "pattern": "^#[a-z0-9_]+$" },
+        "uv": { "type": "array", "items": { "type": "number" }, "minItems": 4, "maxItems": 4 },
+        "rotation": { "enum": [0, 90, 180, 270] },
+        "tintindex": { "type": "integer" },
+        "cullface": { "enum": ["north", "south", "east", "west", "up", "down"] }
+      }
+    },
+    "transform": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rotation": { "$ref": "#/definitions/vec3" },
+        "translation": { "$ref": "#/definitions/vec3" },
+        "scale": { "$ref": "#/definitions/vec3" }
+      }
+    }
+  }
+}

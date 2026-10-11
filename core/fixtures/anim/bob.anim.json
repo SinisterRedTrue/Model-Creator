@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "name": "bob",
+  "route": 3,
+  "length_ticks": 40,
+  "loop": "loop",
+  "easing": "ease-in-out",
+  "trigger": "always",
+  "frames": 8,
+  "parts": {
+    "shade": {
+      "pivot": [
+        8,
+        9,
+        8
+      ],
+      "keyframes": [
+        {
+          "t": 0,
+          "pos": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "t": 20,
+          "pos": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "t": 40,
+          "pos": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "bulb": {
+      "parent": "shade",
+      "pivot": [
+        8,
+        9,
+        8
+      ],
+      "keyframes": [
+        {
+          "t": 0,
+          "rot": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "extras": {
+    "sound": "minecraft:block.note_block.chime"
+  }
+}

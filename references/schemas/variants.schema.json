@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Model Creator variant set",
+  "type": "object",
+  "required": ["schema_version", "variants"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": 1 },
+    "custom_model_data_start": { "type": "integer", "minimum": 1 },
+    "variants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "texture_ops": { "type": "array", "items": { "type": "object" } },
+          "textures": {
+            "type": "object",
+            "patternProperties": { "^[a-z0-9_]+$": { "type": "array", "items": { "type": "object" } } },
+            "additionalProperties": false
+          },
+          "remove_elements": { "type": "array", "items": { "type": "string" } },
+          "add_elements": { "type": "array", "items": { "type": "object" } },
+          "element_overrides": {
+            "type": "object",
+            "additionalProperties": { "type": "object" }
+          }
+        }
+      }
+    }
+  }
+}

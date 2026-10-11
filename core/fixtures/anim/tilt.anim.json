@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "name": "tilt",
+  "route": 2,
+  "length_ticks": 20,
+  "loop": "once",
+  "easing": "linear",
+  "trigger": "use",
+  "frames": 4,
+  "parts": {
+    "shade": {
+      "pivot": [
+        8,
+        9,
+        8
+      ],
+      "keyframes": [
+        {
+          "t": 0,
+          "rot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "t": 20,
+          "rot": [
+            0,
+            0,
+            45
+          ]
+        }
+      ]
+    },
+    "bulb": {
+      "pivot": [
+        8,
+        9,
+        8
+      ],
+      "keyframes": [
+        {
+          "t": 0,
+          "rot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "t": 20,
+          "rot": [
+            0,
+            0,
+            45
+          ]
+        }
+      ]
+    }
+  }
+}

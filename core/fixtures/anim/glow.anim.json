@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "glow",
+  "route": 1,
+  "length_ticks": 20,
+  "loop": "loop",
+  "trigger": "always",
+  "texture_animation": {
+    "texture": "#glow",
+    "effect": "pulse",
+    "frames": 8,
+    "frametime": 2,
+    "interpolate": true,
+    "strength": 0.6
+  }
+}

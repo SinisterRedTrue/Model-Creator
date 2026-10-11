@@ -1,0 +1,13 @@
+{
+  "name": "model-creator",
+  "version": "0.1.0",
+  "description": "Turn a reference image into a Minecraft Java block/item model resource pack, then edit, animate, review, optimize, retexture, convert, pack and install it.",
+  "author": {
+    "name": "SinisterRed",
+    "url": "https://github.com/SinisterRedTrue"
+  },
+  "homepage": "https://github.com/SinisterRedTrue/Model-Creator",
+  "repository": "https://github.com/SinisterRedTrue/Model-Creator",
+  "license": "MIT",
+  "keywords": ["minecraft", "resource-pack", "model", "blockbench", "modelengine", "pixel-art"]
+}

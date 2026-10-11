@@ -1,0 +1,25 @@
+{
+  "name": "sinisterred",
+  "description": "Minecraft modelling tools by SinisterRed for Claude Code.",
+  "owner": {
+    "name": "SinisterRed",
+    "url": "https://github.com/SinisterRedTrue"
+  },
+  "plugins": [
+    {
+      "name": "model-creator",
+      "source": "./",
+      "description": "Turn a reference image into a Minecraft Java block/item model resource pack, then edit, animate, review, optimize, retexture, convert, pack and install it.",
+      "version": "0.1.0",
+      "author": {
+        "name": "SinisterRed"
+      },
+      "license": "MIT",
+      "keywords": [
+        "minecraft",
+        "resource-pack",
+        "model"
+      ]
+    }
+  ]
+}

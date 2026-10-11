@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "notes": "Supported Minecraft Java versions. Versions not listed are refused, never guessed. Add a group only after checking pack formats and model rules against the official changelog.",
+  "rules": {
+    "coordinate_range": [-16, 32],
+    "uv_range": [0, 16],
+    "faces": ["north", "south", "east", "west", "up", "down"],
+    "face_rotations": [0, 90, 180, 270],
+    "display_keys": ["thirdperson_righthand", "thirdperson_lefthand", "firstperson_righthand", "firstperson_lefthand", "gui", "head", "ground", "fixed"],
+    "rotation": { "min": -45, "max": 45, "step": 22.5, "axes": ["x", "y", "z"], "multi_axis": false }
+  },
+  "groups": [
+    {
+      "versions": ["1.20", "1.20.1"],
+      "resource_pack_format": 15,
+      "data_pack_format": 15,
+      "item_definitions": false,
+      "item_model_component": false,
+      "function_folder": "functions",
+      "give": "/give @s minecraft:{base}{{CustomModelData:{cmd}}}"
+    },
+    {
+      "versions": ["1.20.2"],
+      "resource_pack_format": 18,
+      "data_pack_format": 18,
+      "item_definitions": false,
+      "item_model_component": false,
+      "function_folder": "functions",
+      "give": "/give @s minecraft:{base}{{CustomModelData:{cmd}}}"
+    },
+    {
+      "versions": ["1.20.3", "1.20.4"],
+      "resource_pack_format": 22,
+      "data_pack_format": 26,
+      "item_definitions": false,
+      "item_model_component": false,
+      "function_folder": "functions",
+      "give": "/give @s minecraft:{base}{{CustomModelData:{cmd}}}"
+    },
+    {
+      "versions": ["1.20.5", "1.20.6"],
+      "resource_pack_format": 32,
+      "data_pack_format": 41,
+      "item_definitions": false,
+      "item_model_component": false,
+      "function_folder": "functions",
+      "give": "/give @s minecraft:{base}[minecraft:custom_model_data={cmd}]"
+    },
+    {
+      "versions": ["1.21", "1.21.1"],
+      "resource_pack_format": 34,
+      "data_pack_format": 48,
+      "item_definitions": false,
+      "item_model_component": false,
+      "function_folder": "function",
+      "give": "/give @s minecraft:{base}[minecraft:custom_model_data={cmd}]"
+    },
+    {
+      "versions": ["1.21.2", "1.21.3"],
+      "resource_pack_format": 42,
+      "data_pack_format": 57,
+      "item_definitions": false,
+      "item_model_component": true,
+      "function_folder": "function",
+      "give": "/give @s minecraft:{base}[minecraft:custom_model_data={cmd}]"
+    },
+    {
+      "versions": ["1.21.4"],
+      "resource_pack_format": 46,
+      "data_pack_format": 61,
+      "item_definitions": true,
+      "item_model_component": true,
+      "function_folder": "function",
+      "give": "/give @s minecraft:{base}[minecraft:custom_model_data={floats:[{cmd}]}]"
+    },
+    {
+      "versions": ["1.21.5"],
+      "resource_pack_format": 55,
+      "data_pack_format": 71,
+      "item_definitions": true,
+      "item_model_component": true,
+      "function_folder": "function",
+      "give": "/give @s minecraft:{base}[minecraft:custom_model_data={floats:[{cmd}]}]"
+    },
+    {
+      "versions": ["1.21.6"],
+      "resource_pack_format": 63,
+      "data_pack_format": 80,
+      "item_definitions": true,
+      "item_model_component": true,
+      "function_folder": "function",
+      "give": "/give @s minecraft:{base}[minecraft:custom_model_data={floats:[{cmd}]}]"
+    },
+    {
+      "versions": ["1.21.7", "1.21.8"],
+      "resource_pack_format": 64,
+      "data_pack_format": 81,
+      "item_definitions": true,
+      "item_model_component": true,
+      "function_folder": "function",
+      "give": "/give @s minecraft:{base}[minecraft:custom_model_data={floats:[{cmd}]}]"
+    }
+  ]
+}

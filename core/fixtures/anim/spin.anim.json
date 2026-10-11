@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "name": "spin",
+  "route": 4,
+  "length_ticks": 40,
+  "loop": "loop",
+  "easing": "linear",
+  "trigger": "always",
+  "frames": 8,
+  "parts": {
+    "shade": {
+      "pivot": [
+        8,
+        9,
+        8
+      ],
+      "keyframes": [
+        {
+          "t": 0,
+          "rot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "t": 40,
+          "rot": [
+            0,
+            360,
+            0
+          ]
+        }
+      ]
+    },
+    "bulb": {
+      "pivot": [
+        8,
+        9,
+        8
+      ],
+      "keyframes": [
+        {
+          "t": 0,
+          "rot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "t": 40,
+          "rot": [
+            0,
+            360,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

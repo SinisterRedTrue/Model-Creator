@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "custom_model_data_start": 2001,
+  "variants": [
+    { "name": "birch", "texture_ops": [{ "op": "hue_shift", "degrees": 10 }, { "op": "brightness", "factor": 1.35 }] },
+    { "name": "dark_oak", "texture_ops": [{ "op": "brightness", "factor": 0.6 }] },
+    { "name": "broken", "remove_elements": ["leg_3"] }
+  ]
+}

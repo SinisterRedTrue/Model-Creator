@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "name": "oak_stool",
+  "namespace": "custom",
+  "subject": "Small four-legged wooden stool",
+  "spec": {
+    "minecraft_version": "1.21.4",
+    "model_type": "furniture_prop",
+    "delivery": "vanilla",
+    "base_item": "paper",
+    "custom_model_data": 1001,
+    "resolution": 16,
+    "style": "vanilla-faithful",
+    "scale": "furniture, half a block tall",
+    "hidden_sides": "mirror",
+    "fidelity": "simplify",
+    "budget": "low",
+    "output_form": "folder",
+    "reference_images": ["reference.png"],
+    "defaults_applied": ["resolution", "style", "hidden_sides", "fidelity", "output_form"]
+  },
+  "palette": {
+    "a": "#9c6b3c",
+    "b": "#7d522b",
+    "c": "#b8834d",
+    "d": "#5a3a1c"
+  },
+  "textures": {
+    "wood": {
+      "rows": [
+        "caaaaaacaaaaaaab",
+        "aaaaaaaaaaaaabaa",
+        "aabaaaaaaaaaaaaa",
+        "dddddddddddddddd",
+        "aaaaaaabcaaaaaaa",
+        "aaaaaaaaaaaaaaca",
+        "abaaaaaaaaaabaaa",
+        "dddddddddddddddd",
+        "aaacaaaaaaabaaaa",
+        "aaaaaaaabaaaaaaa",
+        "caaaaaaaaaaaaaba",
+        "dddddddddddddddd",
+        "aaaaabaaaaaacaaa",
+        "abaaaaaaaaaaaaaa",
+        "aaaaaaaacaaaaaab",
+        "dddddddddddddddd"
+      ]
+    },
+    "leg": {
+      "rows": [
+        "abaacaabaacaabad",
+        "abaacaabaacaabad",
+        "abaaaaabaacaabad",
+        "abaacaabaaaaabad",
+        "abaacaabaacaabad",
+        "aaaacaabaacaaaad",
+        "abaacaabaacaabad",
+        "abaacaaaaacaabad",
+        "abaacaabaacaabad",
+        "abaaaaabaacaabad",
+        "abaacaabaacaabad",
+        "abaacaabaaaaabad",
+        "aaaacaabaacaabad",
+        "abaacaabaacaabad",
+        "abaacaabaacaaaad",
+        "dddddddddddddddd"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "seat",
+      "color": "#c08a50",
+      "elements": [
+        {
+          "from": [2, 8, 2],
+          "to": [14, 10, 14],
+          "faces": {
+            "north": { "texture": "#wood" },
+            "south": { "texture": "#wood" },
+            "east": { "texture": "#wood" },
+            "west": { "texture": "#wood" },
+            "up": { "texture": "#wood" },
+            "down": { "texture": "#wood" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "leg",
+      "color": "#7d522b",
+      "elements": [
+        { "from": [3, 0, 3], "to": [5, 8, 5], "faces": { "north": { "texture": "#leg" }, "south": { "texture": "#leg" }, "east": { "texture": "#leg" }, "west": { "texture": "#leg" }, "down": { "texture": "#leg" } } },
+        { "from": [11, 0, 3], "to": [13, 8, 5], "faces": { "north": { "texture": "#leg" }, "south": { "texture": "#leg" }, "east": { "texture": "#leg" }, "west": { "texture": "#leg" }, "down": { "texture": "#leg" } } },
+        { "from": [3, 0, 11], "to": [5, 8, 13], "faces": { "north": { "texture": "#leg" }, "south": { "texture": "#leg" }, "east": { "texture": "#leg" }, "west": { "texture": "#leg" }, "down": { "texture": "#leg" } } },
+        { "from": [11, 0, 11], "to": [13, 8, 13], "faces": { "north": { "texture": "#leg" }, "south": { "texture": "#leg" }, "east": { "texture": "#leg" }, "west": { "texture": "#leg" }, "down": { "texture": "#leg" } } }
+      ]
+    }
+  ]
+}

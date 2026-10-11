@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Model Creator animation plan",
+  "type": "object",
+  "required": ["schema_version", "name", "route", "length_ticks"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": 1 },
+    "name": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "route": { "enum": [1, 2, 3, 4] },
+    "minecraft_version": { "type": "string" },
+    "namespace": { "type": "string", "pattern": "^[a-z0-9_.-]+$" },
+    "length_ticks": { "type": "integer", "minimum": 1 },
+    "loop": { "enum": ["loop", "once", "pingpong"] },
+    "easing": { "enum": ["linear", "ease-in-out", "snappy"] },
+    "trigger": { "enum": ["always", "use", "hit", "movement", "command"] },
+    "intensity": { "enum": ["subtle", "normal", "exaggerated"] },
+    "frames": { "type": "integer", "minimum": 2, "maximum": 64 },
+    "parts": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z0-9_]+$": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "elements": { "type": "array", "items": { "oneOf": [{ "type": "string" }, { "type": "integer", "minimum": 0 }] } },
+            "pivot": { "$ref": "#/definitions/vec3" },
+            "parent": { "type": "string" },
+            "keyframes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["t"],
+                "additionalProperties": false,
+                "properties": {
+                  "t": { "type": "number", "minimum": 0 },
+                  "rot": { "$ref": "#/definitions/vec3" },
+                  "pos": { "$ref": "#/definitions/vec3" },
+                  "scale": { "$ref": "#/definitions/vec3" },
+                  "easing": { "enum": ["linear", "ease-in-out", "snappy", "step"] }
+                }
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "texture_animation": {
+      "type": "object",
+      "required": ["texture", "effect"],
+      "additionalProperties": false,
+      "properties": {
+        "texture": { "type": "string" },
+        "effect": { "enum": ["pulse", "flicker", "scroll_up", "scroll_down", "scroll_left", "scroll_right", "hue_cycle", "shimmer"] },
+        "frames": { "type": "integer", "minimum": 2, "maximum": 64 },
+        "frametime": { "type": "integer", "minimum": 1 },
+        "interpolate": { "type": "boolean" },
+        "strength": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "extras": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sound": { "type": "string" },
+        "particle": { "type": "string" },
+        "chain": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "definitions": {
+    "vec3": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 }
+  }
+}
